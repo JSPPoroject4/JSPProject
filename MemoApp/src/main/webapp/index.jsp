@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,5 +11,27 @@
 </head>
 <body>
 	<h1>메인페이지</h1>
+	<form action="/login" method = "post">
+		<fieldset>
+			<legend>회원가입</legend>
+			
+			<table >
+				<tr>
+					<th>ID</th>
+					<td><input type="text"id ="id"placeholder = "ID.."></td>
+				</tr>
+				<tr>
+					<th>PW</th>
+					<td><input type="password"  id ="pw"placeholder = "PW.."></td>
+				</tr>
+				<tr>
+					<th>닉네임</th>
+					<td><input type="text" id ="nickname"placeholder = "닉네임.."></td>
+				</tr>
+				<button>회원가입</button>
+			</table>
+			
+		</fieldset>
+	</form>
 </body>
 </html>
