@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
-
+// 동준 : 작성중입니다.
 public class JDBCTemplate {
 	
 	// 필드
