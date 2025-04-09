@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCTemplate {
-	//jaei 주석 
+	//jaei 주석 1
 	// 필드
 	private static Connection conn = null;
 	// -> static 메서드에서 사용할 static 필드 선언
