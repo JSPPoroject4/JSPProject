@@ -1,11 +1,13 @@
 package edu.kh.memo.model.service;
 
-import edu.kh.memo.model.dao.MemoDAO;
-import edu.kh.memo.model.dao.MemoDAOImpl;
+import static edu.kh.memo.common.JDBCTemplate.*; // 명하 위치 바꿈
+
 import java.sql.Connection;
 import edu.kh.memo.model.dto.Memo;
 import java.util.List;
-import static edu.kh.memo.common.JDBCTemplate.*;
+
+import edu.kh.memo.model.dao.MemoDAO; // 명하 위치 바꿈
+import edu.kh.memo.model.dao.MemoDAOImpl; // 명하 위치 바꿈
 
 public class MemoServiceImpl implements MemoService {
 

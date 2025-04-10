@@ -1,17 +1,51 @@
 package edu.kh.memo.model.dao;
+
 import java.sql.Connection;
 import edu.kh.memo.model.dto.Memo;
 //static 추가
 import static edu.kh.memo.common.JDBCTemplate.*;
 
-import java.sql.*;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+
+import edu.kh.memo.model.dto.Memo;
+
 public class MemoDAOImpl implements MemoDAO {
-	// prop 선언
-	private final Properties prop = new Properties();
+    
+	// JDBC 객체 참조 변수 선언 + Properties 참조 변수 선언  // 명하 작성
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Properties prop;
+	
+	// TodoListDAOImpl 생성자 /xml/sql.xml 경로 읽어오기
+	public MemoDAOImpl() {
+	// TodoListDAOImpl 객체가 생성 될 때( Service 단에서 new 연산자를 통해 객체화 될 때)
+	// sql.xml 파일의 내용을 읽어와 Properties prop 객체에 K:V 세팅
+		
+		try {
+			String filePath = MemoDAOImpl.class.getResource("/xml/sql.xml").getPath();
+			
+			prop = new Properties();
+			prop.loadFromXML(new FileInputStream(filePath));
+			
+		} catch (Exception e) {
+			System.out.println("sql.xml 로드 중 예외발생");
+			e.printStackTrace();
+		}
+		
+	}
+	// 명하 여기까지 작
+	
 
     // 삭제 DAO
     @Override
@@ -26,7 +60,8 @@ public class MemoDAOImpl implements MemoDAO {
             //pstmt 선언 수정 - 김동준
             pstmt = conn.prepareStatement(sql);
             
-            pstmt.setInt(1, memoNo);
+            pstmt.setInt(1, memoNo); // 명하 todoNo -> memoNo로 바꿈
+
             
             result = pstmt.executeUpdate();
             

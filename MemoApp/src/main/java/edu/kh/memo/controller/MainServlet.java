@@ -13,7 +13,7 @@ import edu.kh.memo.model.service.MemoServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/") // 루트 요청 매핑
+@WebServlet("/main") // 루트 요청 매핑 // 명하 main 추가
 public class MainServlet extends HttpServlet {
 
     private MemoService service = new MemoServiceImpl();
