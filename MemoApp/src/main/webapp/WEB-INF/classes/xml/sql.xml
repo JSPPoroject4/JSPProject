@@ -3,7 +3,7 @@
 
 
 <properties>
-	<entry key="signin">
+	<entry key="signup">
 		INSERT INTO MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NICKNAME)
 		VALUES (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?)
 	</entry>
@@ -15,8 +15,4 @@
 	WHERE MEMO_NO = ?
 </entry>
 
-	<entry key="signup">
-		INSERT INTO MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NICKNAME)
-		VALUES (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?)
-	</entry>
 </properties>
