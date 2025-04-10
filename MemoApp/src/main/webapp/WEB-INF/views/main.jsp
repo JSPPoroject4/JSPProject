@@ -1,10 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
+
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<title>Memo List</title>
 <link style="stylesheet" href="/MemoApp/src/main/webapp/resources/css/main.css">
 
 <style><!-- -->
@@ -14,8 +20,11 @@
         align-items: flex-start;
     }
 </style>
+
 </head>
+
 <body>
+
 	<h1>메인 페이지1</h1>
 	
 	<div id="header">
@@ -107,5 +116,11 @@
 	</div>
 	
 	<script src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
+
+
+    <script src="/MemoApp/src/main/webapp/resources/js/main.js"></script>
+
 </body>
+
+
 </html>
