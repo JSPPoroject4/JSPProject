@@ -54,10 +54,12 @@ signUpForm.addEventListener("submit",(e) => {
     }
 });
 
-
-id.addEventListener("change", (e) => {
-
-
-    
-
-})
+if(id != null) {
+	
+	id.addEventListener("change", (e) => {
+	
+	
+	    
+	
+	})
+}

@@ -29,12 +29,12 @@ public class MainServlet extends HttpServlet {
 	  // 메인페이지에서부터 사용할수 있게 하기 위해..
   
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
         try {
             List<Memo> memoList = service.selectAllMemo(); // 메모 목록 조회
-            request.setAttribute("memos", memoList);       // requestScope에 담기
+            req.setAttribute("memos", memoList);       // requestScope에 담기
           	
             String path = "/WEB-INF/views/main.jsp";
 			
