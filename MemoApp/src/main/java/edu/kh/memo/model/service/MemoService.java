@@ -8,4 +8,6 @@ public interface MemoService {
 
 	int memoUpdate(int memoNo, String title, String detail);
 
+	Memo MemDetail(int memoNo);
+
 }

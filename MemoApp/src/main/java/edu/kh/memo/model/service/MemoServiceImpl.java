@@ -16,4 +16,10 @@ public class MemoServiceImpl implements MemoService {
 		return 0;
 	}
 
+	@Override
+	public Memo MemDetail(int memoNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

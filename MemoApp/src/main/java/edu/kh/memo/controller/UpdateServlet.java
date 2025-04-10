@@ -69,7 +69,7 @@ public class UpdateServlet extends HttpServlet{
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
 			
 			MemoService service = new MemoServiceImpl();
-			int result = service.memoUpdate(MemoNo, title, detail);
+			int result = service.memoUpdate(memoNo, title, detail);
 			
 			// 수정 성공 시
 			// 상세 조회 페이지로 redirect
