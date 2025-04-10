@@ -27,8 +27,14 @@ public class ViewMemoServlet extends HttpServlet {
             response.getWriter().println("Error: User is not logged in.");
             return;
         }
-
-        List<Memo> memoList = memoService.selectMemoList(memberNo);
+        // 문제 추적, 초기화
+        List<Memo> memoList = null;
+		try {
+			memoList = memoService.selectMemoList(memberNo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         System.out.println("ViewMemoServlet - memoList size: " + memoList.size()); // 추가된 로그
 

@@ -1,10 +1,11 @@
-const id = document.querySelector("[name=id]");
+/*name 어트리뷰트들에 signup 과 login의 구분 추가*/ 
+const id = document.querySelector("[name=id-signup]");
 
-const pw = document.querySelector("[name=pw]");
+const pw = document.querySelector("[name=pw-signup]");
 
-const pwCheck = document.querySelector("[name=pw-check]");
+const pwCheck = document.querySelector("[name=pw-check-signup]");
 
-const nickname = document.querySelector("[name=nickname]");
+const nickname = document.querySelector("[name=nickname-signup]");
 
 const signUpForm = document.querySelector("#signup-form");
 
@@ -57,6 +58,6 @@ signUpForm.addEventListener("submit",(e) => {
 id.addEventListener("change", (e) => {
 
 
-
     
+
 })

@@ -1,11 +1,13 @@
 package edu.kh.memo.model.service;
 
-import edu.kh.memo.model.dao.MemoDAO;
-import edu.kh.memo.model.dao.MemoDAOImpl;
+import static edu.kh.memo.common.JDBCTemplate.*; // 명하 위치 바꿈
+
 import java.sql.Connection;
 import edu.kh.memo.model.dto.Memo;
 import java.util.List;
-import static edu.kh.memo.common.JDBCTemplate.*;
+
+import edu.kh.memo.model.dao.MemoDAO; // 명하 위치 바꿈
+import edu.kh.memo.model.dao.MemoDAOImpl; // 명하 위치 바꿈
 
 public class MemoServiceImpl implements MemoService {
 
@@ -32,8 +34,8 @@ public class MemoServiceImpl implements MemoService {
 		Connection conn = getConnection();
 		
 		int result = dao.memoDelete(conn, memoNo);
-		
-		if(result > 0) commit(conn, memoNo);
+		// memoNo 는 commit 대상 아니어서 삭제
+		if(result > 0) commit(conn);
 		else			rollback(conn);
 		
 						close(conn);
@@ -64,5 +66,11 @@ public class MemoServiceImpl implements MemoService {
         close(conn);
         return list;
     }
+
+	@Override
+	public List<Memo> selectMemoList(Long memberNo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
