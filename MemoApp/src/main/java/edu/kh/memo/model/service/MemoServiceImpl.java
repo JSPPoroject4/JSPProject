@@ -1,5 +1,25 @@
 package edu.kh.memo.model.service;
 
-public class MemoServiceImpl {
+import edu.kh.memo.model.dto.Memo;
+
+public class MemoServiceImpl implements MemoService {
+
+	@Override
+	public Memo memoDetail(int memoNo) {
+
+		return null;
+	}
+
+	@Override
+	public int memoUpdate(int memoNo, String title, String detail) {
+
+		return 0;
+	}
+
+	@Override
+	public Memo MemDetail(int memoNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

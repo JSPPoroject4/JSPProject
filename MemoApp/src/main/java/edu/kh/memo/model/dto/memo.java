@@ -1,5 +1,5 @@
 package edu.kh.memo.model.dto;
 
-public class memo {
+public class Memo {
 
 }
