@@ -112,7 +112,7 @@
 
     <!-- 스크립트 영역 -->
     <script>
-        // 로그아웃 버튼 클릭 시 로그아웃 처리 경로로 이동
+        // 로그아웃 버튼 클릭 시 로그아웃 처리 경로로 이동 아아아아아아악
         document.addEventListener("DOMContentLoaded", function () {
             const logoutBtn = document.getElementById("logout");
             if (logoutBtn) {
