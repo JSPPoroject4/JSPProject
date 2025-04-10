@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${memo.MemoTitle} 수정 페이지</title>
+<title>${memo.memoTitle} 수정 페이지</title>
 </head>
 <body>
 	
@@ -24,7 +24,7 @@
 			제목 : <input type="text" name="title" value="${memo.memoTitle}">
 		</div>
 		<div>
-			<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoDetail}</textarea>
+			<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoContent}</textarea>
 		</div>
 		
 		<%--

@@ -11,7 +11,9 @@
 	"/" 요청이 오면 "/main" 서블릿으로 요청을 위임
 	
  --%>
-<jsp:forward page="/main" />
+
+<%-- <jsp:forward page="/"/>  JSP파일이 열리자마자 다른 창으로 넘겨서 오류가 남 삭제하거나 HTML 코드를 삭제해야함--%>
+
 
 <!DOCTYPE html>
 <html>
