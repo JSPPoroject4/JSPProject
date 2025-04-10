@@ -1,9 +1,9 @@
 /**
- * @author: 박민서
+ * @author: 박민서, 
  * description: 회원가입, 로그인
  */
 
-// 회원가입
+// 회원가입 --> (안준성 comment) : 로그인 코드? 회원가입 코드? 회원가입 코드는 signup.js에서 작성됨
 
 
 
@@ -39,5 +39,5 @@ addForm.addEventListener("submit", (e) => {
     alert("제목을 입력해주세요!");
     title.focus();
 
- }
+ 	}
 });
