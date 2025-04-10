@@ -1,9 +1,17 @@
 package edu.kh.memo.model.service;
 
+import edu.kh.memo.model.dao.MemoDAO;
+import edu.kh.memo.model.dao.MemoDAOImpl;
+
+import java.sql.Connection;
+
 import edu.kh.memo.model.dto.Memo;
 
 public class MemoServiceImpl implements MemoService {
 
+	private MemoDAO dao = new MemoDAOImpl();
+	
+	
 	@Override
 	public Memo memoDetail(int memoNo) {
 
@@ -15,11 +23,25 @@ public class MemoServiceImpl implements MemoService {
 
 		return 0;
 	}
-
+	
+	// 삭제
+	
 	@Override
-	public Memo MemDetail(int memoNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public int memoDelete(int memoNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.memoDelete(conn, memoNo);
+		
+		if(result > 0) commit(conn, memoNo);
+		else			rollback(conn);
+		
+						close(conn);
+		
+		return result;
 	}
 
+
+
 }
+
