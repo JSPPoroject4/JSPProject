@@ -13,3 +13,4 @@ public interface MemoDAO {
         List<Memo> selectAllMemo(Connection conn) throws Exception;
 	
 }
+

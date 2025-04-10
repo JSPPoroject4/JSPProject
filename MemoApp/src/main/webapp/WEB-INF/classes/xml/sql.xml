@@ -28,4 +28,10 @@
 		FROM MEMO
 		WHERE MEMO_NO = ?
 	</entry>
+	<!-- 전체 메모 조회용 sql -->
+	<entry key="selectAllMemos">
+    SELECT MEMO_NO, MEMO_TITLE, CREATE_DT
+    FROM MEMO
+    ORDER BY CREATE_DT DESC
+</entry>
 </properties>
