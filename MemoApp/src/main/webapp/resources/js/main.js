@@ -2,21 +2,22 @@
  * @author: 박민서, 
  * description: 회원가입, 로그인
  */
+/*
 const form = document.querySelector("#signupForm");
 
-  const id = document.querySelector('[name="id"]').value.trim();
-  const pw = document.querySelector('[name="pw"]').value.trim();
-  const nickname = document.querySelector('[name="nickname"]').value.trim();  
+  const idLogin = document.querySelector('[name="id"]').value.trim();
+  const pwLogin = document.querySelector('[name="pw"]').value.trim();
+  const nicknameLogin = document.querySelector('[name="nickname"]').value.trim();  
 
+  console.log(idLogin.length);
 
-  if (id === "" || pw === "" || nickname === "") {
+  if (idLogin.length === 0 || pwLogin.length === 0 || nicknameLogin.length === 0) {
     alert("모든 값을 입력해주세요!");
-    return;
   }
 
   // 성공 시
-  alert("회원가입이 성공적으로 완료되었습니다!");
-  form.submit();
+//alert("회원가입이 성공적으로 완료되었습니다!");
+ // form.submit();
 
 
 
@@ -28,7 +29,6 @@ if (logout) {
     location.href = "/logout";
   });
 }
-
 
 
 if (addForm) {
@@ -46,6 +46,7 @@ if (addForm) {
 }
 
 
+*/
 
 
 

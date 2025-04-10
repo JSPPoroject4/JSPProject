@@ -50,7 +50,7 @@
                                 <input type="password" placeholder="PW"  style="margin: 0px 0px 0px 3px">
                             </td>
                         </tr>
-                        <tr colspan = "2">
+                        <tr colspan="2">
                             <td  >
                                 <div >
                                     <button>로그인</button>
@@ -115,10 +115,24 @@
 		</div>
 	</div>
 	
-	<script src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
+	<%-- session 범위에 message가 있을 경우 --%>
+	<c:if test="${not empty sessionScope.message}">
+		<script>
+			// JS 영역
+			alert("${message}");
+			// JSP 해석 순위
+			// 1순위 : Java(EL/JSTL)
+			// 2순위 : Front(HTML/CSS/JS)
+		</script>
+		
+		<%-- message를 한 번만 출력하고 제거 --%>
+		<c:remove var="message" scope="session" />
+	</c:if>
+	
+	<script src="/resources/js/signup.js"></script>
 
 
-    <script src="/MemoApp/src/main/webapp/resources/js/main.js"></script>
+    <script src="/resources/js/main.js"></script>
 
 </body>
 
