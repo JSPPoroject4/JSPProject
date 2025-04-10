@@ -4,15 +4,16 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.memo.model.dto.Memo;
+import edu.kh.memo.model.service.MemoService;
+import edu.kh.memo.model.service.MemoServiceImpl;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import edu.kh.memo.model.dto.Memo;
-import edu.kh.memo.model.service.MemoService;
-import edu.kh.memo.model.service.MemoServiceImpl;
 		
 
 
@@ -37,7 +38,7 @@ public class MainServlet extends HttpServlet {
           	
             String path = "/WEB-INF/views/main.jsp";
 			
-			      req.getRequestDispatcher(path).forward(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
 			/*index에서 main으로 forwarding*/
           
         } catch (Exception e) {

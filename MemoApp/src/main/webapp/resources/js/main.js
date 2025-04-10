@@ -18,7 +18,7 @@ const form = document.querySelector("#signupForm");
   alert("회원가입이 성공적으로 완료되었습니다!");
   form.submit();
 
-});
+
 
 // 로그아웃 처리
 
