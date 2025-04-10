@@ -5,9 +5,9 @@
 
 // 회원가입
 
+const form = document.querySelector("#signupForm"); 
 
-
-table.addEventListener('submit', function (e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault();
 const id = document.getElementById('id').value.trim();
 const pw = document.getElementById('pw').value.trim();
@@ -21,9 +21,9 @@ if (id === "" || pw === "" || nickname === "") {
 
 // 로그아웃
 const logout = document.querySelector("#logout");
-
-logout.addEventListener("click", () => {
-  location.href = "/logout";
+if (logout) {
+  logout.addEventListener("click", () => {
+    location.href = "/logout";
 });
 
 const addForm = document.querySelector("#addForm");
@@ -40,4 +40,4 @@ addForm.addEventListener("submit", (e) => {
     title.focus();
 
  }
-});
+}});
