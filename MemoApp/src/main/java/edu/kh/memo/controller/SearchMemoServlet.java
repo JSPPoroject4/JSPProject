@@ -12,7 +12,7 @@ import edu.kh.memo.model.dto.Memo;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/search")
+@WebServlet("/memo/search")
 public class SearchMemoServlet extends HttpServlet {
 
     private MemoService service = new MemoServiceImpl();

@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/Memo/delete")
+@WebServlet("/memo/delete")
 public class DeleteServlet extends HttpServlet{
 
 		@Override
@@ -22,11 +22,12 @@ public class DeleteServlet extends HttpServlet{
 				int memoNo = Integer.parseInt("memoNo");
 					
 				MemoService servie = new MemoServiceImpl();
-				int result = service.todoDelete(memoNo);
+				int result = servie.memoDelete(memoNo);
 				
 				HttpSession session = req.getSession();
 				
-				if(result>0)message = "메모가 삭제되었습니다.";
+				String message = null;
+				if(result>0)message  = "메모가 삭제되었습니다.";
 				else		message = "존재하는 메모가 없습니다.";
 						
 			
