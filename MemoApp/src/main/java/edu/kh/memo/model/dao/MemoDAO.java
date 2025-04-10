@@ -1,5 +1,5 @@
 package edu.kh.memo.model.dao;
 
-public class MemoDAO {
+public interface MemoDAO {
 
 }

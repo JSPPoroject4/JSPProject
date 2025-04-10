@@ -1,5 +1,11 @@
 package edu.kh.memo.model.service;
 
-public class MemoService {
+import edu.kh.memo.model.dto.Memo;
+
+public interface MemoService {
+
+	Memo memoDetail(int memoNo);
+
+	int memoUpdate(int memoNo, String title, String detail);
 
 }
