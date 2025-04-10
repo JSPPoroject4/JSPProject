@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/viewMemo")
+@WebServlet("/memo/viewMemo")
 // 이름 맞게 수정
 public class VieMemoSevlet extends HttpServlet {
     private MemoService service = new MemoServiceImpl();

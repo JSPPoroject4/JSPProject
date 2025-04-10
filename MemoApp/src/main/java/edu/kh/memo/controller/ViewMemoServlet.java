@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/viewNotes")
+@WebServlet("/memo/viewNotes")
 public class ViewMemoServlet extends HttpServlet {
 
     private final MemoService memoService = new MemoServiceImpl();
