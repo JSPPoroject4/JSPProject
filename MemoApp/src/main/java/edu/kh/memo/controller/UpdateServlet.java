@@ -17,7 +17,7 @@ public class UpdateServlet extends HttpServlet{
 	// 수정 화면 전환 GET 요청
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// 신명하
 		try {
 			
 			// 수정 화면에는 기존의 제목, 상세내용이
@@ -26,7 +26,7 @@ public class UpdateServlet extends HttpServlet{
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
 			
 			MemoService service = new MemoServiceImpl();
-			Memo memo = service.MemDetail(memoNo);
+			Memo memo = service.memoDetail(memoNo);
 			
 			if(memo == null) {
 				// 메인페이지 redirect
@@ -49,7 +49,6 @@ public class UpdateServlet extends HttpServlet{
 	}
 
 	
-	
 	/*
 	 * 요청 주소가 같을 때
 	 * 데이터 전달(제출) 방식이 다르면(GET/POST)
@@ -57,6 +56,7 @@ public class UpdateServlet extends HttpServlet{
 	 * 만들어 처리할 수 있다!
 	 * 
 	 * */
+	
 	// 할 일 제목/내용 수정 POST 요청
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
