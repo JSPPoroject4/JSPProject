@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+
 <properties>
+	<entry key="signin">
+		INSERT INTO MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NICKNAME)
+		VALUES (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?)
+	</entry>
+	
+<!-- 메모 삭제 -->
+
+<entry key="memoDelete">
+	DELETE FROM MEMO
+	WHERE MEMO_NO = ?
+</entry>
 
 </properties>
