@@ -11,15 +11,15 @@ import java.util.Properties;
 
 
 
-public class SignInDAOImpl implements SignInDAO{
+public class SignUpDAOImpl implements SignUpDAO{
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
 	private Properties prop;
-	public SignInDAOImpl() {
+	public SignUpDAOImpl() {
 		try {
-			String filePath = SignInDAO.class.getResource("/xml/sql.xml")
+			String filePath = SignUpDAO.class.getResource("/xml/sql.xml")
 					.getPath();
 			prop = new Properties();
 			prop.loadFromXML(new FileInputStream(filePath));
@@ -30,13 +30,13 @@ public class SignInDAOImpl implements SignInDAO{
 		}
 	}
 	@Override
-	public int signIn(Connection conn, String id, String pw, String nickname) throws Exception {
+	public int signUp(Connection conn, String id, String pw, String nickname) throws Exception {
 		
 		
 		int result = 0;
-		
+		System.out.println("id : " + id +", pw : " + pw + ", nickname : "+nickname);
 		try {
-			String sql = prop.getProperty("signin");
+			String sql = prop.getProperty("signup");
 			pstmt = conn.prepareStatement(sql);
 			//pstmt.setString(1, no);
 			pstmt.setString(1, id);
