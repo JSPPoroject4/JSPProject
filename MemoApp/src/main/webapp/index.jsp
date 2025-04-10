@@ -18,6 +18,7 @@
 </head>
 <body>
 	<h1>메인페이지</h1>
+	
 	<form action="/MemoApp/signup" method = "post" id="signup-form">
 		<fieldset class="horizontal" >
 			<legend>회원가입</legend>
@@ -61,12 +62,43 @@
 			</table>
 		</fieldset>
 	</form>
+	
+	<hr>
+	<!-- 김동준 작성 -->
+<!--  메모 검색창 -->
+	<div class="search-bar">
+		<form id="addForm" action="search" method="get">
+			<input type="text" name="title" placeholder="메모 제목을 검색하세요" id="searchTitle" required>
+			<button type="submit">검색</button>
+		</form>
+		<c:if test="${not empty errorMsg}">
+			<p class="error-msg" style="color: red;">${errorMsg}</p>
+		</c:if>
+	</div>
 
+	<!-- 메모 목록 -->
+	<h2>메모 목록</h2>
+	<!-- 메모 목록 보는 버튼 -->
+	<form action="${pageContext.request.contextPath}/viewlist" method="get">
+    <button type="submit">메모 목록 보기</button>
+</form>
+	<!-- 메인화면에 메모 출력 -->
+<c:if test="${empty memos}">
+	<p>메모가 없습니다.</p>
+</c:if>
+
+<c:forEach var="memo" items="${memos}">
+	<div class="memo-item">
+		<a href="viewMemo.do?memoNo=${memo.memoNo}" style="text-decoration: none;">
+			<strong>${memo.title}</strong> - ${memo.date}
+		</a>
+	</div>
+</c:forEach>
+
+	<!-- JS 파일 연결 -->
 	<script src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
-
-	
-
-	
+	<!-- main.js 파일 연결 -->
+<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 </body>
 </html>

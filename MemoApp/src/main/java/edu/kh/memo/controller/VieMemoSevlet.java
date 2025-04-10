@@ -13,7 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/viewMemo")
-public class viewMemoServlet extends HttpServlet {
+// 이름 맞게 수정
+public class VieMemoSevlet extends HttpServlet {
     private MemoService service = new MemoServiceImpl();
 
     @Override
@@ -22,7 +23,14 @@ public class viewMemoServlet extends HttpServlet {
 
         int memoNo = Integer.parseInt(request.getParameter("memoNo"));
 
-        Memo memo = service.selectMemoByNo(memoNo);
+        // 초기화
+        Memo memo = null;
+		try {
+			memo = service.selectMemoByNo(memoNo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         request.setAttribute("memo", memo);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/viewMemo.jsp");

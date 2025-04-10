@@ -1,5 +1,11 @@
 package edu.kh.memo.model.dao;
 
+import java.sql.Connection;
+import edu.kh.memo.model.dto.Memo;
+//static 추가
+import static edu.kh.memo.common.JDBCTemplate.*;
+
+
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
 
 import edu.kh.memo.model.dto.Memo;
 
@@ -39,19 +46,22 @@ public class MemoDAOImpl implements MemoDAO {
 	}
 	// 명하 여기까지 작
 	
+
     // 삭제 DAO
     @Override
     
     public int memoDelete(Connection conn, int memoNo) throws Exception {
-        
+    	//pstmt 선언
+    	PreparedStatement pstmt = null;
         int result = 0;
         
         try {
             String sql = prop.getProperty("memoDelete");
-            
+            //pstmt 선언 수정 - 김동준
             pstmt = conn.prepareStatement(sql);
             
             pstmt.setInt(1, memoNo); // 명하 todoNo -> memoNo로 바꿈
+
             
             result = pstmt.executeUpdate();
             
@@ -62,26 +72,26 @@ public class MemoDAOImpl implements MemoDAO {
         return result;
     }
     @Override
-	public List<Memo> selectAllMemo(Connection conn) throws Exception {
+    public List<Memo> selectAllMemo(Connection conn) throws Exception {
         List<Memo> list = new ArrayList<>();
-	    String sql = "SELECT MEMO_NO, MEMO_TITLE, CREATE_DATE, MODIFY_DATE FROM MEMO ORDER BY CREATE_DATE DESC";
-        
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery()) {
-            
+        String sql = prop.getProperty("selectAllMemos");
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
             while (rs.next()) {
                 Memo memo = new Memo();
-	            memo.setMemoNo(rs.getLong("MEMO_NO"));
-	            memo.setMemoTitle(rs.getString("MEMO_TITLE"));
-	            memo.setCreateDate(rs.getTimestamp("CREATE_DATE"));
-	            memo.setModifyDate(rs.getTimestamp("MODIFY_DATE"));
-                
-	            list.add(memo);
-	        }
-	    }
-        
-	    return list;
-	}
+                memo.setMemoNo(rs.getLong("MEMO_NO"));
+                memo.setMemoTitle(rs.getString("MEMO_TITLE"));
+                memo.setCreateDate(rs.getTimestamp("CREATE_DT"));
+                memo.setModifyDate(rs.getTimestamp("MODIFY_DT"));
+
+                list.add(memo);
+            }
+        }
+
+        return list;
+    }
     
     @Override
     public List<Memo> searchMemoByTitle(Connection conn, String title) {
@@ -138,4 +148,5 @@ public class MemoDAOImpl implements MemoDAO {
 
         return memo;
     }
+    
 }

@@ -34,8 +34,8 @@ public class MemoServiceImpl implements MemoService {
 		Connection conn = getConnection();
 		
 		int result = dao.memoDelete(conn, memoNo);
-		
-		if(result > 0) commit(conn, memoNo);
+		// memoNo 는 commit 대상 아니어서 삭제
+		if(result > 0) commit(conn);
 		else			rollback(conn);
 		
 						close(conn);
@@ -66,5 +66,11 @@ public class MemoServiceImpl implements MemoService {
         close(conn);
         return list;
     }
+
+	@Override
+	public List<Memo> selectMemoList(Long memberNo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
