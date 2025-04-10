@@ -1,9 +1,9 @@
 /**
- * @author: 박민서
+ * @author: 박민서, 
  * description: 회원가입, 로그인
  */
 
-// 회원가입
+// 회원가입 --> (안준성 comment) : 로그인 코드? 회원가입 코드? 회원가입 코드는 signup.js에서 작성됨
 
 
 // 김동준 수정. 사인업 폼 괄호 및 쿼리셀렉터 수정
@@ -40,15 +40,10 @@ addForm.addEventListener("submit", (e) => {
     alert("제목을 입력해주세요!");
     title.focus();
 
- }});
- // 검색창
-<div class="search-bar">
-    <form action="search" method="get">
-        <input type="text" name="title" placeholder="메모 제목을 검색하세요" id="searchTitle" required>
-        <button type="submit">검색</button>
-    </form>
 
-    <c:if test="${not empty errorMsg}">
-        <p class="error-msg">${errorMsg}</p>
-    </c:if>
-</div>
+ 	}
+});
+
+
+
+
