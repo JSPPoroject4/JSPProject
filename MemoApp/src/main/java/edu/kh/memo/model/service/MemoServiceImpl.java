@@ -1,5 +1,68 @@
 package edu.kh.memo.model.service;
 
-public class MemoServiceImpl {
+import edu.kh.memo.model.dao.MemoDAO;
+import edu.kh.memo.model.dao.MemoDAOImpl;
+import java.sql.Connection;
+import edu.kh.memo.model.dto.Memo;
+import java.util.List;
+import static edu.kh.memo.common.JDBCTemplate.*;
 
+public class MemoServiceImpl implements MemoService {
+
+	private MemoDAO dao = new MemoDAOImpl();
+	
+	
+	@Override
+	public Memo memoDetail(int memoNo) {
+
+		return null;
+	}
+
+	@Override
+	public int memoUpdate(int memoNo, String title, String detail) {
+
+		return 0;
+	}
+	
+	// 삭제
+	
+	@Override
+	public int memoDelete(int memoNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.memoDelete(conn, memoNo);
+		
+		if(result > 0) commit(conn, memoNo);
+		else			rollback(conn);
+		
+						close(conn);
+		
+		return result;
+	}
+
+    @Override
+    public List<Memo> searchMemoByTitle(String title) throws Exception {
+        Connection conn = getConnection();
+        List<Memo> memoList = dao.searchMemoByTitle(conn, title);
+        close(conn);
+        return memoList;
+    }
+
+    @Override
+    public Memo selectMemoByNo(int memoNo) throws Exception {
+        Connection conn = getConnection();
+        Memo memo = dao.selectMemoByNo(conn, memoNo);
+        close(conn);
+        return memo;
+    }
+    
+    @Override
+    public List<Memo> selectAllMemo() throws Exception {
+        Connection conn = getConnection();
+        List<Memo> list = dao.selectAllMemo(conn);
+        close(conn);
+        return list;
+    }
 }
+
