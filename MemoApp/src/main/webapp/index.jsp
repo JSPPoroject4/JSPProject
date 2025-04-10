@@ -18,20 +18,23 @@
 			<table >
 				<tr>
 					<th>ID</th>
-					<td><input type="text"id ="id"placeholder = "ID.."></td>
+					<td><input type="text"id ="id" name="id" placeholder = "ID.."></td>
 				</tr>
 				<tr>
 					<th>PW</th>
-					<td><input type="password"  id ="pw"placeholder = "PW.."></td>
+					<td><input type="password" id ="pw" name="pw" placeholder = "PW.."></td>
 				</tr>
 				<tr>
 					<th>닉네임</th>
-					<td><input type="text" id ="nickname"placeholder = "닉네임.."></td>
+					<td><input type="text" id ="nickname" name="nickname" placeholder = "닉네임.."></td>
 				</tr>
-				<button>회원가입</button>
+				<button id="submitBtn" type="submit">회원가입</button>
 			</table>
 			
 		</fieldset>
 	</form>
+	
+	<script src="/resources/js/main.js"></script>
+	
 </body>
 </html>
