@@ -34,4 +34,10 @@
     FROM MEMO
     ORDER BY CREATE_DATE DESC
 </entry>
+
+	<entry key="searchByMemberId"> <!-- 로그인용 회원Table 탐색 SQL문 -->
+		SELECT * FROM MEMBER
+		WHERE MEMBER.MEMBER_ID = ? 
+		AND MEMBER_PW = ?
+	</entry>
 </properties>

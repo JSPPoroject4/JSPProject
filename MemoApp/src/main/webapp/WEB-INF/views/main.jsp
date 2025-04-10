@@ -41,13 +41,13 @@
 						<tr>
 							<th>ID</th>
 							<td>
-                                <input type="text" Placeholder="ID" style="margin: 0px 0px 0px 3px">
+                                <input type="text" name="id-login"Placeholder="ID" style="margin: 0px 0px 0px 3px">
                             </td>
 						</tr>
                         <tr>
                             <th>PW</th>
                             <td>
-                                <input type="password" placeholder="PW"  style="margin: 0px 0px 0px 3px">
+                                <input type="password" name="pw-login"placeholder="PW"  style="margin: 0px 0px 0px 3px">
                             </td>
                         </tr>
                         <tr colspan="2">
@@ -70,7 +70,7 @@
 				<tr>
 					<th>ID</th>
 
-					<td><input type="text" name ="id"placeholder = "ID.."></td>
+					<td><input type="text" name ="id-signup"placeholder = "ID.."></td>
 					
 				</tr>
 				<tr>
@@ -83,16 +83,16 @@
 				</tr>
 				<tr>
 					<th>PW</th>
-					<td><input type="password" name ="pw" placeholder = "PW.."></td>
+					<td><input type="password" name ="pw-signup" placeholder = "PW.."></td>
 				</tr>
 				
 				<tr>
 					<th>PW확인</th>
-					<td><input type="password" name ="pw-check" placeholder = "PW 확인.."></td>
+					<td><input type="password" name ="pw-check-signup" placeholder = "PW 확인.."></td>
 				</tr>
 				<tr>
 					<th>닉네임</th>
-					<td><input type="text" name ="nickname" placeholder = "닉네임.."></td>
+					<td><input type="text" name ="nickname-signup" placeholder = "닉네임.."></td>
 				</tr>
 				<tr>
 					<td colspan = "2">
