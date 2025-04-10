@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	<entry key="signin">
+		INSERT INTO MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NICKNAME)
+		VALUES (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?)
+	</entry>
+	
+	<entry key="searchMemoByTitle">
+		SELECT MEMO_NO, MEMO_TITLE, CREATE_DT, MODIFY_DT
+		FROM MEMO
+		WHERE MEMO_TITLE LIKE ?
+		ORDER BY MEMO_NO DESC
+	</entry>
 
+	<entry key="selectMemoByNo">
+		SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT, CREATE_DT, MODIFY_DT, MEMBER_NO
+		FROM MEMO
+		WHERE MEMO_NO = ?
+	</entry>
 </properties>
