@@ -83,7 +83,7 @@
                         </tr>
                         <tr>
                             <th>닉네임</th>
-                            <td><input type="text" name="nickname-signup" placeholder="닉네임.."></td>
+                            <td><input type="text" name="nickname-signup" placeholder="닉네임..d"></td>
                         </tr>
                         <tr>
                             <td colspan="2">
