@@ -25,6 +25,7 @@
 			<table >
 				<tr>
 					<th>ID</th>
+
 					<td><input type="text" name ="id"placeholder = "ID.."></td>
 					
 				</tr>
@@ -56,9 +57,16 @@
 						</div>
 					</td>
 				</tr>
+
 			</table>
 		</fieldset>
 	</form>
+
 	<script src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
+
+	
+
+	
+
 </body>
 </html>
