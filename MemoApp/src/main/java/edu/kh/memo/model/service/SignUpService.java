@@ -1,6 +1,6 @@
 package edu.kh.memo.model.service;
 
-public interface SignInService {
+public interface SignUpService {
 	/**
 	 * @param id
 	 * @param pw
@@ -9,5 +9,5 @@ public interface SignInService {
 	 * @throws Exception
 	 * 
 	 * */
-	public int signIn(String id, String pw, String nickname) throws Exception;
+	public int signUp(String id, String pw, String nickname) throws Exception;
 }
