@@ -19,4 +19,8 @@ public class Memo {
     private Date createDate;
     private Date modifyDate;
     private Long memberNo;
+	public void setMemberId(String userId) {
+		// TODO Auto-generated method stub
+		
+	}
 }
