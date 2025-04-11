@@ -1,18 +1,23 @@
-package edu.kh.memo.model.service;
-import edu.kh.memo.model.dto.Memo;
-import java.util.List;
-
-public interface MemoService {
-
-// 메모 삭제 서비스
-	int memoDelete(int memoNo) throws Exception;
+	package edu.kh.memo.model.service;
 	
-	Memo memoDetail(int memoNo);
-
-	int memoUpdate(int memoNo, String title, String detail);
-    List<Memo> searchMemoByTitle(String title) throws Exception;   // 제목으로 검색 (여러 개 가능)
-    Memo selectMemoByNo(int memoNo) throws Exception;              // 번호로 상세 조회
-        List<Memo> selectAllMemo() throws Exception;
-
-		List<Memo> selectMemoList(Long memberNo) throws Exception;
-}
+	import java.util.List;
+	import edu.kh.memo.model.dto.Memo;
+	
+	public interface MemoService {
+	
+	    List<Memo> selectAllMemo() throws Exception;
+	
+	    Memo selectMemoByNo(int memoNo) throws Exception;
+	
+	    List<Memo> searchMemoByTitle(String title) throws Exception;
+	
+	    int memoDelete(int memoNo) throws Exception;
+	
+	    int memoUpdate(int memoNo, String title, String detail);
+	
+	    Memo memoDetail(int memoNo);
+	
+	    List<Memo> selectMemoList(Long memberNo) throws Exception;
+	
+	    int insertMemo(Memo memo) throws Exception; // ✅ 이 부분이 핵심!
+	}

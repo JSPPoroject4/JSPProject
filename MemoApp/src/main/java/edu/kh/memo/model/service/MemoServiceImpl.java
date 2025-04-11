@@ -72,5 +72,25 @@ public class MemoServiceImpl implements MemoService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public int insertMemo(Memo memo) throws Exception {
+	    Connection conn = getConnection();
+	    int result = 0;
+
+	    try {
+	        result = dao.insertMemo(conn, memo); // DAO 호출
+	        if(result > 0) commit(conn);
+	        else rollback(conn);
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	        rollback(conn);
+	        throw e;
+	    } finally {
+	        close(conn);
+	    }
+
+	    return result;
+	}
 }
 
