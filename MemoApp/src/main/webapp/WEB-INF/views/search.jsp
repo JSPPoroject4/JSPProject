@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>메모 목록</title>
-    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/search.css">
+    <link rel="stylesheet" href="/MemoApp/resources/css/search.css">
 </head>
 <body>
     <h2 style="text-align:center;">메모 목록</h2>

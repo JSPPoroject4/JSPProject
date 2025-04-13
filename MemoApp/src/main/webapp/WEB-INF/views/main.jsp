@@ -9,14 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Memo List</title>
-    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/main.css">
-
+<link rel="stylesheet" href="/MemoApp/resources/css/main.css">
 </head>
 
 <body>
-    <!-- css 변경 -->
     <header>
-        <img src="/MemoApp/src/main/webapp/resources/images/logo.jpg" width="40px" height="auto">
+        <img src="/MemoApp/resources/images/logo.jpg" width="40px" height="auto">
         <h1>MEMO APP</h1>
     </header>
 
@@ -63,32 +61,9 @@
                     <button type="submit">검색</button>
                 </form>
 
-                <h2 style="text-align:center;">내 메모 목록</h2>
-
-                <table>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>작성자</th><!-- 작성자 추가 -->
-                        <th>작성일</th>
-                        <th>수정일</th>
-                    </tr>
-
-                    <c:forEach var="memo" items="${memoList}">
-                        <tr>
-                            <td>${memo.memoNo}</td>
-                            <td>
-                                <a href="<%= request.getContextPath() %>/viewMemo?no=${memo.memoNo}">
-                                    ${memo.memoTitle}
-                                </a>
-                            </td>
-                            <td>${memo.member.nickname}</td> <!-- 작성자 추가 -->
-                            <td>${memo.createDate}</td>
-                            <td>${memo.modifyDate}</td>
-                        </tr>
-                    </c:forEach>
-
-                </table>
+                <div style="margin-top: 20px;">
+                    <button onclick="location.href='<%= request.getContextPath() %>/memo/list'">메모 목록 보기</button>
+                </div>
 
             </c:if>
 

@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>${memo.memoTitle} 상세 조회</title>
-	<link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/detail.css">
+	<link rel="stylesheet" href="/MemoApp/resources/css/detail.css">
 
 	
 </head>
