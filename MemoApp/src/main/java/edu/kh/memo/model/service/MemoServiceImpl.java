@@ -3,6 +3,8 @@ package edu.kh.memo.model.service;
 import static edu.kh.memo.common.JDBCTemplate.*; // 명하 위치 바꿈
 
 import java.sql.Connection;
+
+import edu.kh.memo.model.dto.Member;
 import edu.kh.memo.model.dto.Memo;
 import java.util.List;
 
@@ -92,5 +94,12 @@ public class MemoServiceImpl implements MemoService {
 
 	    return result;
 	}
+    @Override
+    public Member login(String memberId, String memberPw) throws Exception {
+        Connection conn = getConnection();
+        Member loginMember = dao.login(conn, memberId, memberPw); // MemoDAO의 login 메서드 호출
+        close(conn);
+        return loginMember;
+    }
 }
 

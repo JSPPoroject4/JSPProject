@@ -1,7 +1,9 @@
 	package edu.kh.memo.model.service;
 	
 	import java.util.List;
-	import edu.kh.memo.model.dto.Memo;
+
+import edu.kh.memo.model.dto.Member;
+import edu.kh.memo.model.dto.Memo;
 	
 	public interface MemoService {
 	
@@ -20,4 +22,7 @@
 	    List<Memo> selectMemoList(Long memberNo) throws Exception;
 	
 	    int insertMemo(Memo memo) throws Exception; // ✅ 이 부분이 핵심!
+	    
+	    Member login(String memberId, String memberPw) throws Exception; // login 메서드 추가 김동준
+
 	}

@@ -1,5 +1,5 @@
 package edu.kh.memo.model.dto;
-
+// 파일 이름 대문자로 수정함 - 김동준
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Builder;
@@ -19,4 +19,8 @@ public class Memo {
     private Date createDate;
     private Date modifyDate;
     private Long memberNo;
+	public void setMemberId(String userId) {
+		// TODO Auto-generated method stub
+		
+	}
 }

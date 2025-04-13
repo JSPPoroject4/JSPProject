@@ -29,26 +29,27 @@
         <div>
             <!-- 로그인 X: 로그인 폼 표시 -->
             <c:if test="${empty sessionScope.loginMember}">
-                <form action="/login" method="post">
-                    <fieldset class="horizontal" style="max-width: 380px">
-                        <legend>로그인</legend>
-                        <table>
-                            <tr>
-                                <th>ID</th>
-                                <td><input type="text" name="id-login" placeholder="ID" style="margin-left: 3px;"></td>
-                            </tr>
-                            <tr>
-                                <th>PW</th>
-                                <td><input type="password" name="pw-login" placeholder="PW" style="margin-left: 3px;"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <div><button>로그인</button></div>
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                </form>
+            <!-- 로그인 수정 김동준 -->
+                <form action="${pageContext.request.contextPath}/login" method="post">
+    <fieldset class="horizontal" style="max-width: 380px">
+        <legend>로그인</legend>
+        <table>
+            <tr>
+                <th>ID</th>
+                <td><input type="text" name="id-login" placeholder="ID" style="margin-left: 3px;"></td>
+            </tr>
+            <tr>
+                <th>PW</th>
+                <td><input type="password" name="pw-login" placeholder="PW" style="margin-left: 3px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div><button>로그인</button></div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
             </c:if>
 
             <!-- 로그인 O: 환영 메시지, 로그아웃 버튼, 메모 작성 버튼 -->
@@ -65,7 +66,7 @@
 
             <!-- 회원가입 폼: 로그인 X일 때만 표시 -->
             <c:if test="${empty sessionScope.loginMember}">
-                <form action="/memoApp/signup" method="post" id="signup-form">
+                <form action="${pageContext.request.contextPath}/signup" method="post" id="signup-form">
                     <fieldset class="horizontal" style="max-width: 380px">
                         <legend>회원가입</legend>
                         <img src="${pageContext.request.contextPath}/images_signup/signup.png" width="100px">
@@ -109,7 +110,12 @@
         <div>
             <!-- 로그인 상태에서만 메모 출력 -->
             <c:if test="${not empty sessionScope.loginMember}">
-                <%-- 여기에 메모 목록 출력 로직 추가 가능 --%>
+                <%-- 메모 검색 출력 --%>
+                <form action="${pageContext.request.contextPath}/memo/search" method="get">
+    <input type="text" name="keyword" placeholder="메모 검색" required>
+    <button type="submit">검색</button>
+</form>
+                
             </c:if>
         </div>
     </div>
@@ -133,9 +139,10 @@
             }
         });
     </script>
+<!-- js파일 경로 변경 김동준 -->
+<script src="/MemoApp/resources/js/signup.js"></script>
+<script src="/MemoApp/resources/js/main.js"></script>
 
-    <script src="/resources/js/signup.js"></script>
-    <script src="/resources/js/main.js"></script>
 
 </body>
 
