@@ -10,10 +10,11 @@
     <meta charset="UTF-8">
     <title>Memo List</title>
     <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/main.css">
- 
+    
 </head>
 
 <body>
+    <!-- css 변경 -->
     <header>
         <img src="/MemoApp/src/main/webapp/resources/images/logo.jpg" width="40px" height="auto">
         <h1>MEMO APP</h1>
