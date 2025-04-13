@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #3b73e8;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  /* 검색창 */
+  form {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #3b73e8;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #3b73e8;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  button:hover {
+    background-color: #2a5fbd;
+  }
+
+  /* 테이블 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #3b73e8;
+  }
+
+  th {
+    background-color: #f0f6ff;
+    color: #3b73e8;
+    font-weight: bold;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3b73e8;
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #2a5fbd;
+  }
+
+  /* 메인으로 버튼 */
+  .btn-home {
+    display: block;
+    width: 240px;
+    margin: 40px auto;
+    padding: 12px;
+    text-align: center;
+    background-color: #3b73e8;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .btn-home:hover {
+    background-color: #2a5fbd;
+  }
