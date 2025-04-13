@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #3b73e8;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .memo-card {
+    border: 2px solid #3b73e8;
+    border-radius: 8px;
+    padding: 24px;
+    background-color: #f9fcff;
+  }
+
+  .memo-card p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .memo-card strong {
+    color: #3b73e8;
+  }
+
+  .btn-back {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px;
+    text-align: center;
+    background-color: #3b73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .btn-back:hover {
+    background-color: #2a5fbd;
+  }
+
+  .back-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .back-link a {
+        color: #3b73e8;
+        text-decoration: none;
+        font-weight: bold;
+    }

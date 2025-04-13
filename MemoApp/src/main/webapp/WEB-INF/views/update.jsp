@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${memo.memoTitle} 수정 페이지</title>
+<link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/update.css">
 </head>
 <body>
 	
@@ -20,12 +21,12 @@
 				-> UpdateServlet 클래스에 doPost() 오버라이딩
 	 --%>
 	<form action="/memo/update" method="post" id="updateForm">
-		<div>
-			제목 : <input type="text" name="title" value="${memo.memoTitle}">
-		</div>
-		<div>
-			<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoContent}</textarea>
-		</div>
+		<labe for="title">제목</labe>
+        <input type="text" name="title" value="${memo.memoTitle}">
+		
+		<labe for="detail">내용</labe>
+		<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoContent}</textarea>
+	
 		
 		<%--
 			memoNo 도 수정 요청 시 파라미터로 보내기
@@ -38,7 +39,7 @@
 		 --%>
 		<input type="hidden" name="memoNo" value="${param.memoNo}">
 		
-		<button>수정 완료</button>
+		<button type="submit">수정 완료</button>
 	</form>
 	
 	
@@ -50,6 +51,7 @@
 		
 		<c:remove var="message" scope="session" />
 	</c:if>
+	
 	
 </body>
 </html>

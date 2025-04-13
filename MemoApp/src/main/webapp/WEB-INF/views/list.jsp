@@ -10,44 +10,13 @@
 <head>
     <meta charset="UTF-8">
     <title>메모 목록</title>
-    <style>
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: blue;
-        }
-        .btn-home {
-            display: block;
-            width: 200px;
-            margin: 30px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #eee;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-        .btn-home:hover {
-            background-color: #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/list.css">
+   
 </head>
 <body>
+    <header>
+        <div class="logo">Memo</div>
+    </header>
 
     <h2 style="text-align:center;">📋 메모 목록</h2>
 
@@ -87,5 +56,8 @@
 
     <a href="<%= request.getContextPath() %>/" class="btn-home">🏠 메인으로 돌아가기</a>
 
+
+    
+    
 </body>
 </html>
