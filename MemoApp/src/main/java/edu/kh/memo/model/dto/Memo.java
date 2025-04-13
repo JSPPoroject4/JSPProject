@@ -21,7 +21,7 @@ public class Memo {
     private Date modifyDate;
     private Long memberNo;
 	public void setMemberId(String userId) {
-		// TODO Auto-generated method stubasdasd
+		// TODO Auto-generated method stubasdasdasdasd
 		
 	}
 }
