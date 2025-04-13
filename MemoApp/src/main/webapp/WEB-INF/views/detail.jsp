@@ -13,6 +13,7 @@
 	
 </head>
 <body>
+	 <!-- css 변경 -->
 
 	<h1>${sessionScope.loginMember}</h1>
 		
