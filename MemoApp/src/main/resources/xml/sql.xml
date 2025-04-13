@@ -16,9 +16,9 @@
         AND MEMBER_PW = ?
     </entry>
 
-    <!-- 메모 삽입 -->
+    <!-- 메모 삽입 dt 를 date 로 변경 -->
     <entry key="insertMemo">
-        INSERT INTO MEMO(MEMO_NO, MEMO_TITLE, MEMO_CONTENT, MEMBER_NO, CREATE_DT)
+        INSERT INTO MEMO(MEMO_NO, MEMO_TITLE, MEMO_CONTENT, MEMBER_NO, CREATE_DATE)
         VALUES(SEQ_MEMO_NO.NEXTVAL, ?, ?, ?, SYSDATE)
     </entry>
 
@@ -44,11 +44,18 @@
         WHERE MEMO_NO = ?
     </entry>
 
-    <!-- 전체 메모 조회 -->
+    <!-- 전체 메모 조회 modifydate 추가 -->
     <entry key="selectAllMemos">
-        SELECT MEMO_NO, MEMO_TITLE, CREATE_DATE
+        SELECT MEMO_NO, MEMO_TITLE, CREATE_DATE, MODIFY_DATE
         FROM MEMO
         ORDER BY CREATE_DATE DESC
     </entry>
+    <!-- 로그인 추가 김동준 -->
+    <entry key="login">
+    SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW
+    FROM MEMBER
+    WHERE MEMBER_ID = ?
+    AND MEMBER_PW = ?
+</entry>
 
 </properties>

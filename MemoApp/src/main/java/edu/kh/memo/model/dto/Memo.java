@@ -1,8 +1,10 @@
 package edu.kh.memo.model.dto;
 
+
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ public class Memo {
     private Date modifyDate;
     private Long memberNo;
 	public void setMemberId(String userId) {
+
 		// TODO Auto-generated method stubasdasdasdasd
 		
 	}

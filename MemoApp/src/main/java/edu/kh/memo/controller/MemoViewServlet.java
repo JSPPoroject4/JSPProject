@@ -1,5 +1,6 @@
 package edu.kh.memo.controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,27 +12,30 @@ import edu.kh.memo.model.service.MemoService;
 import edu.kh.memo.model.service.MemoServiceImpl;
 
 import java.io.IOException;
-// 메모 상세 보기
+// 메모 상세 보기 
+// 통채로 수정 김동준
 @WebServlet("/memo/view")
 public class MemoViewServlet extends HttpServlet {
 
     private MemoService service = new MemoServiceImpl();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-        try {
-            int memoNo = Integer.parseInt(request.getParameter("no")); // 파라미터 받기
-            Memo memo = service.selectMemoByNo(memoNo);                // 서비스 호출
+        int memoNo = Integer.parseInt(req.getParameter("memoNo"));
 
-            request.setAttribute("memo", memo); // requestScope에 담기
-            request.getRequestDispatcher("/WEB-INF/views/memo/view.jsp").forward(request, response);
+        // 초기화
+        Memo memo = null;
+		try {
+			memo = service.selectMemoByNo(memoNo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        req.setAttribute("memo", memo);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("errorMessage", "메모 상세 조회 중 오류 발생");
-            request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
-        }
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/viewMemo.jsp");
+        dispatcher.forward(req, resp);
     }
 }

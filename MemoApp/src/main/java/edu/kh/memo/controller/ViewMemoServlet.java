@@ -11,20 +11,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
-
-@WebServlet("/memo/viewNotes")
+//위치 수정 김동준
+@WebServlet("/memoApp/viewNotes")
 public class ViewMemoServlet extends HttpServlet {
 
     private final MemoService memoService = new MemoServiceImpl();
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+//req,resp 수정
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         Long memberNo = (Long) session.getAttribute("loginMemberNo");
 
         System.out.println("ViewMemoServlet - memberNo from session: " + memberNo); // 추가된 로그
 
         if (memberNo == null) {
-            response.getWriter().println("Error: User is not logged in.");
+            resp.getWriter().println("Error: User is not logged in.");
             return;
         }
         // 문제 추적, 초기화
@@ -37,8 +37,8 @@ public class ViewMemoServlet extends HttpServlet {
 		}
 
         System.out.println("ViewMemoServlet - memoList size: " + memoList.size()); // 추가된 로그
-
-        request.setAttribute("memos", memoList); 
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        //req, resp 수정
+        req.setAttribute("memos", memoList); 
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }

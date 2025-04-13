@@ -10,5 +10,11 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <!-- 정적 리소스 매핑 김동준 -->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+</servlet-mapping>
+  
  
 </web-app>

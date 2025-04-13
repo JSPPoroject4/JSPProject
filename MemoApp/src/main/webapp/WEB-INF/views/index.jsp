@@ -72,7 +72,7 @@
             </c:choose>
         </main>
     </div>
-
-    <script src="./resources/js/main.js"></script>
+	<!-- 경로 수정 김동준 -->
+    <script src="/resources/js/main.js"></script>
 </body>
 </html>

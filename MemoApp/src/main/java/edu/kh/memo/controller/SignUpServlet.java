@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-@WebServlet("/memo/signup")
+//servlet 위치 변경 김동준
+@WebServlet("/signup")
 public class SignUpServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,13 +45,15 @@ public class SignUpServlet extends HttpServlet{
 			
 			// 3) HttpServletRequest / Response 두 객체를 요청 위임(forward)할 JSP에게 넘기기
 			//dispatcher.forward(req, resp);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/signup.jsp");
+			dispatcher.forward(req, resp);
 		}catch(java.sql.SQLIntegrityConstraintViolationException e) { 
 			// 중복된 ID로 회원가입을 시도했을떄 무결성 위반 Exception 발생
 			System.out.println("무결성 위반 Exception 발생" );
 			HttpSession session = req.getSession();
 			session.setAttribute("message", "이미 존재하는 아이디입니다!");
 			
-			resp.sendRedirect("/");
+			resp.sendRedirect(req.getContextPath());//컨텍스트루트로 리 다이렉트 김동준 수정
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

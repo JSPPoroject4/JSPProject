@@ -3,6 +3,8 @@ package edu.kh.memo.model.dao;
 import java.sql.Connection;
 import java.util.List;
 import edu.kh.memo.model.dto.Memo;
+import edu.kh.memo.model.dto.Member; // Member DTO import 추가
+
 
 public interface MemoDAO {
 	
@@ -20,6 +22,10 @@ public interface MemoDAO {
 
 	// 메모 삽입
 	int insertMemo(Connection conn, Memo memo) throws Exception;
+	
+	// login 메서드 추가 김동준 수정
+    Member login(Connection conn, String memberId, String memberPw) throws Exception; // login 메서드 추가
+
 	
 	
 }

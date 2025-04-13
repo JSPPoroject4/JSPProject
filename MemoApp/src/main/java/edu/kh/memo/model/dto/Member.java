@@ -11,14 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+// 김동준 멤버 넘버 롱으로 수정
 public class Member {
 	//private int no;
+	public Long MemberNo; 
 	private String id;
 	private String pw;
 	private String nickname;
-	public Long getMemberNo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-}
+}	
+
