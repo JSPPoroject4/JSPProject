@@ -20,13 +20,15 @@
 		/memo/update - POST 방식 요청
 				-> UpdateServlet 클래스에 doPost() 오버라이딩
 	 --%>
-	<form action="/memo/update" method="post" id="updateForm">
-		<labe for="title">제목</labe>
-        <input type="text" name="title" value="${memo.memoTitle}">
-		
-		<labe for="detail">내용</labe>
-		<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoContent}</textarea>
-	
+
+	<form action="${pageContext.request.contextPath}/memo/update" method="post" id="updateForm">
+		<div>
+			제목 : <input type="text" name="title" value="${memo.memoTitle}">
+		</div>
+		<div>
+			<textarea name="detail" rows="3" cols="50" placeholder="상세 내용..">${memo.memoContent}</textarea>
+		</div>
+
 		
 		<%--
 			memoNo 도 수정 요청 시 파라미터로 보내기

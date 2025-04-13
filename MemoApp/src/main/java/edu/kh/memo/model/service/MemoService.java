@@ -15,9 +15,9 @@ import edu.kh.memo.model.dto.Memo;
 	
 	    int memoDelete(int memoNo) throws Exception;
 	
-	    int memoUpdate(int memoNo, String title, String detail);
+	    int memoUpdate(int memoNo, String title, String detail) throws Exception;
 	
-	    Memo memoDetail(int memoNo);
+	    Memo memoDetail(int memoNo) throws Exception;
 	
 	    List<Memo> selectMemoList(Long memberNo) throws Exception;
 	

@@ -15,17 +15,32 @@ public class MemoServiceImpl implements MemoService {
 
 	private MemoDAO dao = new MemoDAOImpl();
 	
-	
+	// 메모 상세보기 추가
 	@Override
-	public Memo memoDetail(int memoNo) {
-
-		return null;
+	public Memo memoDetail(int memoNo) throws Exception {
+		Connection conn = getConnection();
+		Memo memo = dao.selectMemoByNo(conn, memoNo); // MemoDAOImpl의 selectMemoByNo 메서드 활용
+		close(conn);
+		return memo;
 	}
-
+	// 업데이트 수정 김동준
 	@Override
-	public int memoUpdate(int memoNo, String title, String detail) {
+	public int memoUpdate(int memoNo, String title, String detail) throws Exception {
+		Connection conn = getConnection();
+		int result = 0;
 
-		return 0;
+		try {
+			result = dao.memoUpdate(conn, memoNo, title, detail);
+			if (result > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+		} finally {
+			close(conn);
+		}
+
+		return result;
 	}
 	
 	// 삭제
@@ -68,12 +83,14 @@ public class MemoServiceImpl implements MemoService {
         close(conn);
         return list;
     }
-
+    // 멤버별 메모 보기 구현 김동준
 	@Override
 	public List<Memo> selectMemoList(Long memberNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Connection conn = getConnection();
+		List<Memo> memoList = dao.selectMemoList(conn, memberNo); // MemoDAOImpl의 메서드 호출
+		close(conn);
+		return memoList;
+	} // 김동준 수정
 	
 	@Override
 	public int insertMemo(Memo memo) throws Exception {

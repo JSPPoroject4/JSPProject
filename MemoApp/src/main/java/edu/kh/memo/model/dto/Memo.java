@@ -22,9 +22,20 @@ public class Memo {
     private Date createDate;
     private Date modifyDate;
     private Long memberNo;
+    private Member member; // 필드에 멤버 선언
 	public void setMemberId(String userId) {
-
-		// TODO Auto-generated method stubasdasdasdasd
-		
+	
 	}
+	
+	 public void setMember(Member member) {
+	        this.member = member;
+	    }
+	 
+	    // toString 메서드 (필요에 따라 수정)
+	    @Override
+	    public String toString() {
+	        return "Memo [memoNo=" + memoNo + ", memoTitle=" + memoTitle + ", memoContent=" + memoContent
+	                + ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", memberNo=" + memberNo
+	                + ", member=" + member + "]";
+	    }
 }

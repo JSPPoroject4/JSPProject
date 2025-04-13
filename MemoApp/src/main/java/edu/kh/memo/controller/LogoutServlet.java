@@ -26,7 +26,6 @@ public class LogoutServlet extends HttpServlet {
 		
 		session.invalidate(); // 전체 세션을 무효화(== 초기화)
 		// -> 세션에 저장된 모든 속성이 전부 삭제
-		
-		resp.sendRedirect("/");
-	}
+		// 메인 페이지로 수정
+		resp.sendRedirect(req.getContextPath() + "/");	}
 }

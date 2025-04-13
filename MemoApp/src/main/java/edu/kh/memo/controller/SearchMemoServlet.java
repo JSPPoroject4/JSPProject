@@ -22,6 +22,10 @@ public class SearchMemoServlet extends HttpServlet {
         throws ServletException, IOException {
 
         String title = req.getParameter("title");
+        // 키워드로 검색되는 이유를 못찾아서, 키워드를 추가
+        if (title == null || title.isEmpty()) {
+            title = req.getParameter("keyword"); // keyword 파라미터도 확인
+        }
         try {
             List<Memo> memoList = service.searchMemoByTitle(title);
             req.setAttribute("memoList", memoList);

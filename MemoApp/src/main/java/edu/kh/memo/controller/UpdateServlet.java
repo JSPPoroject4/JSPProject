@@ -31,7 +31,7 @@ public class UpdateServlet extends HttpServlet{
 			
 			if(memo == null) {
 				// 메인페이지 redirect
-				resp.sendRedirect("/");
+				resp.sendRedirect("${pageContext.request.contextPath}/main");
 				return;
 			}
 			
@@ -61,49 +61,47 @@ public class UpdateServlet extends HttpServlet{
 	// 할 일 제목/내용 수정 POST 요청
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String url = null; // 변수 선언을 메서드 시작 부분으로 이동
+		String message = null; // 변수 선언을 메서드 시작 부분으로 이동
 		
 		try {
-			
+
 			// 전달받은 파라미터 얻어오기 (제목, 상세내용, memoNo)
 			String title = req.getParameter("title");
 			String detail = req.getParameter("detail");
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
-			
+
 			MemoService service = new MemoServiceImpl();
 			int result = service.memoUpdate(memoNo, title, detail);
-			
-			// 수정 성공 시
-			// 상세 조회 페이지로 redirect
-			// "수정되었습니다" message 를 alert 출력
-			
-			// 수정 실패 시
-			// 수정 화면으로 redirect
-			// "수정 실패" message 를 alert 출력
-			String url = null;
-			String message = null;
-			
-			if(result > 0) { // 성공
-				url = "/memo/detail?memoNo=" + memoNo;
-				message = "수정 되었습니다";
-				
+
+			// 메시지 view memo 로 전달
+			if(result > 0) {
+			    message = "수정 되었습니다";
+
+			    // 메모 다시 조회해서
+			    Memo memo = service.selectMemoByNo(memoNo);
+
+			    req.setAttribute("message", message);
+			    req.setAttribute("memo", memo); // 이게 핵심!
+
+			    req.getRequestDispatcher("/WEB-INF/views/viewMemo.jsp").forward(req, resp);
+			    return;
 			} else { // 실패
-				url = "/memo/update?memoNo=" + memoNo;
+				url = req.getContextPath() + "/memo/update?memoNo=" + memoNo;
 				message = "수정 실패";
 			}
-			
-			// session 객체에 속성 추가
+
+			// session 객체에 속성 추가 (성공 시에는 더 이상 필요 없음)
 			req.getSession().setAttribute("message", message);
-			
-			// redirect 는 Get 방식 요청
+
+			// redirect 는 Get 방식 요청 (성공 시에는 더 이상 필요 없음)
 			resp.sendRedirect(url);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			// 필요하다면 finally 블록에 자원 해제 코드를 작성
 		}
-		
-	}
+	} // doPost 메서드 닫는 중괄호
 
-
-
-
-}
+} // UpdateServlet 클래스 닫는 중괄호

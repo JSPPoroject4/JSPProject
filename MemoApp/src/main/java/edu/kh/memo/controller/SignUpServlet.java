@@ -40,8 +40,8 @@ public class SignUpServlet extends HttpServlet{
 			
 			//RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/fr/Signin_forward_result.jsp");
 			//req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);// TODO :나중에 signup.jsp를 따로 만들면 파일명 바꿀것!!
-			
-			resp.sendRedirect("/");
+			// 메인페이지로 이동 수정
+			resp.sendRedirect(req.getContextPath() + "/");
 			
 			// 3) HttpServletRequest / Response 두 객체를 요청 위임(forward)할 JSP에게 넘기기
 			//dispatcher.forward(req, resp);
