@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- css 변경 -->
     <header>
         <img src="/MemoApp/src/main/webapp/resources/images/logo.jpg" width="40px" height="auto">
         <h1>MEMO APP</h1>

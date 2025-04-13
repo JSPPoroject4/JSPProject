@@ -8,9 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 메모장</title>
-    <link rel="stylesheet" href="./resources/css/main.css">
+    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/index.css">
 </head>
 <body>
+
+    <header>
         <div class="logo">나의 메모장</div>
         <div class="auth-buttons">
             <c:choose>
@@ -25,6 +27,7 @@
                 </c:otherwise>
             </c:choose>
         </div>
+
     
     <h2>메모 검색</h2>
     <form action="${pageContext.request.contextPath}/memo/search" method="get">
@@ -32,6 +35,21 @@
         <button type="submit">검색</button>
     </form>
 
+    </header>
+
+
+    <!-- 메모 검색 -->
+    <section class="search-area">
+        <h2>메모 검색</h2>
+        <form action="search" method="get">
+            <input type="text" name="title" placeholder="메모 제목을 입력하세요" required>
+            <button type="submit">검색</button>
+        </form>
+    </section>
+
+    <hr> 
+    
+    <!-- 메모 카드 목록 -->
         <main class="main-content">
             <h2>최근 메모</h2>
             <c:choose>
@@ -56,14 +74,14 @@
                                 </p>
                                 <small>작성자: ${memo.member.nickname}</small> <!-- 이 줄 추가 -->
                             </div>
-                            <button onclick="location.href='detail?memoNo=${memo.memoNo}'">❤️</button>
+                            <button onclick="location.href='detail?memoNo=${memo.memoNo}'">🤍</button>
                         </div>
                     </c:forEach>
                 </c:otherwise>
             </c:choose>
-        </main>
-    </div>
-	<!-- 경로 수정 김동준 -->
+        </main>🤍
+   
+    <!-- 경로 수정 김동준 -->
     <script src="/resources/js/main.js"></script>
 
 </body>

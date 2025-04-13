@@ -14,7 +14,7 @@
         </script>
     </c:if>
 
-	  <c:if test="${not empty memo}">
+     <c:if test="${not empty memo}">
         <p><strong>제목:</strong> ${memo.memoTitle}</p>
         <p><strong>내용:</strong> ${memo.memoContent}</p>
         <p><strong>작성일:</strong> ${memo.createDate}</p>

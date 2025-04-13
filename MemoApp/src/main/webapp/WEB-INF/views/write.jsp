@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/MemoApp/resources/css/wirte.css">
 </head>
 <body>
-<!-- 메인으로 돌아가게 수정 -->
+
     <header>
         <h1>메모 작성하기</h1>
     </header>
 
-	<form action="${pageContext.request.contextPath}/memo/list" method="post">
+   <form action="${pageContext.request.contextPath}/memo/list" method="post">
 
         <fieldset>
             <legend>Memo</legend>

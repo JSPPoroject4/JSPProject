@@ -1,0 +1,125 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. Header */
+header {
+    background-color: #3b73e8;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 2. 로그인 / 회원가입 */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-buttons span {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.auth-buttons button {
+    background-color: white;
+    color: #3b73e8;
+    border: 1.5px solid #3b73e8;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: #f0f6ff;
+}
+
+/* 3. 검색 영역 */
+.search-area {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+  
+}
+
+.search-area input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #3b73e8;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.search-area button {
+    padding: 10px 16px;
+    margin-left: 10px;
+    border: none;
+    background-color: #3b73e8;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-area button:hover {
+    background-color: #2a5fbd;
+}
+
+/* 4. 메모 카드 목록 */
+/* overflow 설정 */
+.main-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    max-height: 400px;         /* 또는 vh로: 50vh 등 */
+    overflow-y: auto;
+    padding-right: 10px; 
+}
+
+.note-item {
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+
+.note-item h3 {
+    font-size: 18px;
+    margin: 0 0 8px 0;
+    color: #333;
+}
+
+.note-item .date {
+    font-size: 13px;
+    color: #666;
+}
+
+.note-item button {
+    background-color: #3b73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.note-item button:hover {
+    background-color: #2a5fbd;
+}
