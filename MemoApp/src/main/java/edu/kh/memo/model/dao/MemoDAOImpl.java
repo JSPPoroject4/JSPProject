@@ -72,13 +72,21 @@ public class MemoDAOImpl implements MemoDAO {
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
-        	// DT-DATE 수정 김동준
             while (rs.next()) {
                 Memo memo = new Memo();
                 memo.setMemoNo(rs.getLong("MEMO_NO"));
                 memo.setMemoTitle(rs.getString("MEMO_TITLE"));
                 memo.setCreateDate(rs.getTimestamp("CREATE_DATE"));
                 memo.setModifyDate(rs.getTimestamp("MODIFY_DATE"));
+                memo.setMemoContent(rs.getString("MEMO_CONTENT")); // 메모 컨텐츠 추가
+
+
+                // Member 객체 생성 및 닉네임 설정
+                Member member = new Member();
+                member.setNickname(rs.getString("MEMBER_NICKNAME"));
+                memo.setMember(member);
+                // 오류 확인용
+                System.out.println("DAO에서 가져온 메모: " + memo); // <-- 이 라인 추가
 
                 list.add(memo);
             }
@@ -86,31 +94,35 @@ public class MemoDAOImpl implements MemoDAO {
 
         return list;
     }
-
+    // 검색 기능 추가
     @Override
-    public List<Memo> searchMemoByTitle(Connection conn, String title) {
+    public List<Memo> searchMemoByTitle(Connection conn, String title) throws Exception {
         List<Memo> list = new ArrayList<>();
-        String sql = "SELECT * FROM MEMO WHERE MEMO_TITLE LIKE ?";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String sql = prop.getProperty("searchMemoByTitle"); // sql.xml에서 쿼리 가져오기
 
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try {
+            pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, "%" + title + "%");
-            // DT-DATE 수정
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    Memo memo = Memo.builder()
-                            .memoNo(rs.getLong("MEMO_NO"))
-                            .memoTitle(rs.getString("MEMO_TITLE"))
-                            .memoContent(rs.getString("MEMO_CONTENT"))
-                            .createDate(rs.getDate("CREATE_DATE"))
-                            .modifyDate(rs.getDate("MODIFY_DATE"))
-                            .memberNo(rs.getLong("MEMBER_NO"))
-                            .build();
+            rs = pstmt.executeQuery();
 
-                    list.add(memo);
-                }
+            while (rs.next()) {
+                Memo memo = Memo.builder()
+                        .memoNo(rs.getLong("MEMO_NO"))
+                        .memoTitle(rs.getString("MEMO_TITLE"))
+                        .memoContent(rs.getString("MEMO_CONTENT"))
+                        .createDate(rs.getDate("CREATE_DATE"))
+                        .modifyDate(rs.getDate("MODIFY_DATE"))
+                        .memberNo(rs.getLong("MEMBER_NO"))
+                        .build();
+
+                list.add(memo);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } finally {
+            close(rs);
+            close(pstmt);
         }
 
         return list;
@@ -156,13 +168,14 @@ public class MemoDAOImpl implements MemoDAO {
 	        pstmt.setString(2, memberPw);
 	        rs = pstmt.executeQuery();
 
-	        // 김동준 수정
-	        if (rs.next()) {
-                loginMember = new Member();
-                loginMember.setMemberNo(rs.getLong("MEMBER_NO")); // 데이터베이스에서 MEMBER_NO 가져와 설정
-                loginMember.setId(rs.getString("MEMBER_ID")); // 데이터베이스에서 MEMBER_ID 가져와 id에 설정
-                loginMember.setPw(rs.getString("MEMBER_PW")); // 데이터베이스에서 MEMBER_PW 가져와 pw에 설정 (필요하다면)
-            }
+	        // 김동준 수정 2
+			if (rs.next()) {
+				loginMember = new Member();
+				loginMember.setMemberNo(rs.getLong("MEMBER_NO"));
+				loginMember.setId(rs.getString("MEMBER_ID"));
+				loginMember.setPw(rs.getString("MEMBER_PW"));
+				loginMember.setNickname(rs.getString("MEMBER_NICKNAME")); // 이 부분 추가
+				}
 
 	    } finally {
 	        close(rs);
@@ -171,5 +184,25 @@ public class MemoDAOImpl implements MemoDAO {
 
 	    return loginMember;
 	}
+	
+    @Override
+    public int memoUpdate(Connection conn, int memoNo, String title, String detail) throws Exception {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("memoUpdate"); // sql.xml에 쿼리 정의 필요
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, title);
+            pstmt.setString(2, detail);
+            pstmt.setInt(3, memoNo);
+            result = pstmt.executeUpdate();
+
+        } finally {
+            close(pstmt);
+        }
+
+        return result;
+    }
 	
 }

@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="./resources/css/main.css">
 </head>
 <body>
-    <header>
         <div class="logo">나의 메모장</div>
         <div class="auth-buttons">
             <c:choose>
                 <c:when test="${not empty sessionScope.loginMember}">
-                    <span id="nickname">${sessionScope.loginMember.memberNickname}님</span>
+                <!-- 닉네임 수정 -->
+				<span id="nickname">${sessionScope.loginMember.nickname}님, 오늘의 할 일을 확인해보세요</span>
                     <button id="logout">로그아웃</button>
                 </c:when>
                 <c:otherwise>
@@ -25,32 +25,22 @@
                 </c:otherwise>
             </c:choose>
         </div>
-    </header>
     
-<!-- index.jsp -->
-<%@ page contentType="text/html; charset=UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>메모 검색</title>
-</head>
-<body>
     <h2>메모 검색</h2>
-    <form action="search" method="get">
+    <form action="${pageContext.request.contextPath}/memo/search" method="get">
         <input type="text" name="title" placeholder="메모 제목을 입력하세요" required>
         <button type="submit">검색</button>
     </form>
-</body>
-</html>
 
         <main class="main-content">
             <h2>최근 메모</h2>
             <c:choose>
-                <c:when test="${empty requestScope.memos}">
+                <c:when test="${empty memoList}">
                     <p>작성된 메모가 없습니다.</p>
                 </c:when>
                 <c:otherwise>
-                    <c:forEach var="memo" items="${requestScope.memos}">
+                    <c:forEach var="memo" items="${memoList}">
+                    	<!-- 작성자 출력 추가 -->
                         <div class="note-item">
                             <div>
                                 <h3>${memo.memoTitle}</h3>
@@ -64,6 +54,7 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </p>
+                                <small>작성자: ${memo.member.nickname}</small> <!-- 이 줄 추가 -->
                             </div>
                             <button onclick="location.href='detail?memoNo=${memo.memoNo}'">❤️</button>
                         </div>
@@ -74,5 +65,6 @@
     </div>
 	<!-- 경로 수정 김동준 -->
     <script src="/resources/js/main.js"></script>
+
 </body>
 </html>

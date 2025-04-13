@@ -34,7 +34,7 @@ public class MainServlet extends HttpServlet {
 
         try {
             List<Memo> memoList = service.selectAllMemo(); // 메모 목록 조회
-            req.setAttribute("memos", memoList);       // requestScope에 담기
+            req.setAttribute("memoList", memoList);       // requestScope에 담기
           	
             String path = "/WEB-INF/views/main.jsp";
 			

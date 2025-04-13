@@ -1,10 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="edu.kh.memo.model.dto.Memo" %>
-<%
-    List<Memo> memoList = (List<Memo>) request.getAttribute("memoList");
-%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,32 +52,33 @@
             <th>제목</th>
             <th>작성일</th>
             <th>수정일</th>
+            <th>작성자</th> <th>삭제</th>
         </tr>
 
-        <%
-            if (memoList != null && !memoList.isEmpty()) {
-                for (Memo memo : memoList) {
-        %>
-            <tr>
-                <td><%= memo.getMemoNo() %></td>
-                <td>
-                    <a href="<%= request.getContextPath() %>/viewMemo?no=<%= memo.getMemoNo() %>">
-                        <%= memo.getMemoTitle() %>
-                    </a>
-                </td>
-                <td><%= memo.getCreateDate() %></td>
-                <td><%= memo.getModifyDate() %></td>
-            </tr>
-        <%
-                }
-            } else {
-        %>
-            <tr>
-                <td colspan="4">조회된 메모가 없습니다.</td>
-            </tr>
-        <%
-            }
-        %>
+        <c:choose>
+            <c:when test="${empty memoList}">
+                <tr>
+                    <td colspan="6">조회된 메모가 없습니다.</td>
+                </tr>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="memo" items="${memoList}">
+                    <tr>
+                        <td>${memo.memoNo}</td>
+                        <td>
+                            <a href="<%= request.getContextPath() %>/viewMemo?no=${memo.memoNo}">
+                                ${memo.memoTitle}
+                            </a>
+                        </td>
+                        <td>${memo.createDate}</td>
+                        <td>${memo.modifyDate}</td>
+                        <td>${memo.member.nickname}</td> <td>
+                            <a href="<%= request.getContextPath() %>/memo/delete?memoNo=${memo.memoNo}" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </table>
 
     <a href="<%= request.getContextPath() %>/" class="btn-home">🏠 메인으로 돌아가기</a>

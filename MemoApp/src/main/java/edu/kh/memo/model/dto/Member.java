@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 // 김동준 멤버 넘버 롱으로 수정
 public class Member {
 	//private int no;
-	public Long MemberNo; 
+	public Long memberNo; 
 	private String id;
 	private String pw;
 	private String nickname;

@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>Memo List</title>
     <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/main.css">
- 
+
 </head>
 
 <body>
@@ -23,10 +23,8 @@
 
         <div>
 
-            <!-- 로그인 X: 로그인 폼 표시 -->
             <c:if test="${empty sessionScope.loginMember}">
-            <!-- 로그인 수정 김동준 -->
-                <form action="${pageContext.request.contextPath}/login" method="post">
+            <form action="${pageContext.request.contextPath}/login" method="post">
     <fieldset class="horizontal" style="max-width: 380px">
         <legend>로그인</legend>
         <table>
@@ -48,24 +46,51 @@
 </form>
             </c:if>
 
-            <!-- 로그인 O: 환영 메시지, 로그아웃 버튼, 메모 작성 버튼 -->
             <c:if test="${not empty sessionScope.loginMember}">
-                <p>${sessionScope.loginMember} 님, 환영합니다!</p>
+				<span id="nickname">${sessionScope.loginMember.nickname}님, 오늘의 할 일을 확인해보세요</span>
                 <button type="button" id="logout">로그아웃</button>
 
                 <div style="margin-top: 20px;">
                     <form action="${pageContext.request.contextPath}/memo" method="get">
                         <button type="submit">메모 작성</button>
-
                     </form>
-                </c:if>
-    
-                <!-- 로그인 O: 환영 메시지, 로그아웃 버튼, 메모 작성 버튼 -->
-                <c:if test="${not empty sessionScope.loginMember}">
-                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 12px; padding: 10px;">
-                        <p>${sessionScope.loginMember} 님, 환영합니다!</p>
+                </div>
 
-            <!-- 회원가입 폼: 로그인 X일 때만 표시 -->
+                <%-- 메모 검색 출력 --%>
+                <form action="${pageContext.request.contextPath}/memo/search" method="get">
+                    <input type="text" name="keyword" placeholder="메모 검색" required>
+                    <button type="submit">검색</button>
+                </form>
+
+                <h2 style="text-align:center;">내 메모 목록</h2>
+
+                <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th><!-- 작성자 추가 -->
+                        <th>작성일</th>
+                        <th>수정일</th>
+                    </tr>
+
+                    <c:forEach var="memo" items="${memoList}">
+                        <tr>
+                            <td>${memo.memoNo}</td>
+                            <td>
+                                <a href="<%= request.getContextPath() %>/viewMemo?no=${memo.memoNo}">
+                                    ${memo.memoTitle}
+                                </a>
+                            </td>
+                            <td>${memo.member.nickname}</td> <!-- 작성자 추가 -->
+                            <td>${memo.createDate}</td>
+                            <td>${memo.modifyDate}</td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+
+            </c:if>
+
             <c:if test="${empty sessionScope.loginMember}">
                 <form action="${pageContext.request.contextPath}/signup" method="post" id="signup-form">
                     <fieldset class="horizontal" style="max-width: 380px">
@@ -100,7 +125,7 @@
 
                                     <div style="float: right;">
                                     <td colspan="2">
-                                            <button id="button-signup-submit" style="width: 100%;">회원가입</button>   
+                                            <button id="button-signup-submit" style="width: 100%;">회원가입</button>
                                     </td>
                                     </div>
 
@@ -112,28 +137,14 @@
             </c:if>
         </div>
 
-        <div>
-            <!-- 로그인 상태에서만 메모 출력 -->
-            <c:if test="${not empty sessionScope.loginMember}">
-                <%-- 메모 검색 출력 --%>
-                <form action="${pageContext.request.contextPath}/memo/search" method="get">
-    <input type="text" name="keyword" placeholder="메모 검색" required>
-    <button type="submit">검색</button>
-</form>
-                
-            </c:if>
 
-        </div>
-    
-        <!-- 세션 메시지 출력 (한 번만) -->
         <c:if test="${not empty sessionScope.message}">
             <script>
                 alert("${message}");
             </script>
             <c:remove var="message" scope="session" />
         </c:if>
-    
-        <!-- 로그아웃 버튼 클릭 시 로그아웃 처리 -->
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const logoutBtn = document.getElementById("logout");
@@ -145,25 +156,9 @@
             });
         </script>
 
-        <c:remove var="message" scope="session" />
-    </c:if>
 
-    <!-- 로그아웃 버튼 클릭 시 로그아웃 처리 -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const logoutBtn = document.getElementById("logout");
-            if (logoutBtn) {
-                logoutBtn.addEventListener("click", function () {
-                    window.location.href = "${pageContext.request.contextPath}/logout";
-                });
-            }
-        });
-    </script>
-<!-- js파일 경로 변경 김동준 -->
 <script src="/MemoApp/resources/js/signup.js"></script>
 <script src="/MemoApp/resources/js/main.js"></script>
-
-
 
 </body>
 </html>

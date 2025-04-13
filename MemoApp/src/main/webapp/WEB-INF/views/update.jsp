@@ -19,7 +19,7 @@
 		/memo/update - POST 방식 요청
 				-> UpdateServlet 클래스에 doPost() 오버라이딩
 	 --%>
-	<form action="/memo/update" method="post" id="updateForm">
+	<form action="${pageContext.request.contextPath}/memo/update" method="post" id="updateForm">
 		<div>
 			제목 : <input type="text" name="title" value="${memo.memoTitle}">
 		</div>
