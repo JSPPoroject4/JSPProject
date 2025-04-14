@@ -8,8 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 메모장</title>
-    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/index.css">
-</head>
+<link rel="stylesheet" href="/MemoApp/resources/css/main.css"></head>
 <body>
 
     <header>
@@ -82,7 +81,7 @@
         </main>🤍
    
     <!-- 경로 수정 김동준 -->
-    <script src="/resources/js/main.js"></script>
+    <script src="/MemoApp/resources/js/main.js"></script>
 
 </body>
 </html>

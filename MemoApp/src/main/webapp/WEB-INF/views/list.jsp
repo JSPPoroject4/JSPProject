@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>메모 목록</title>
-    <link rel="stylesheet" href="/MemoApp/src/main/webapp/resources/css/list.css">
-   
+	<link rel="stylesheet" href="/MemoApp/resources/css/list.css">   
 </head>
 <body>
     <header>

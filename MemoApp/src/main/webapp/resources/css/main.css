@@ -31,7 +31,7 @@ header {
 
 /* 로그인/회원가입 폼 영역 */
 form {
-    max-width: 380px;
+    max-width: 900px;
     margin: 20px auto;
 }
 
@@ -42,7 +42,7 @@ fieldset {
     padding: 20px;
 }
 
-/* 테이블 정렬 */
+/* 테이블 정렬 (로그인, 회원가입 폼 테이블) */
 form table {
     width: 100%;
     border-collapse: collapse;
@@ -69,7 +69,7 @@ input[type="password"] {
 }
 
 
-/*  모든 버튼 가로 길게 */
+/* 모든 버튼 가로 길게 */
 button {
     background-color: #2a6fd1;
     color: white;
@@ -92,3 +92,41 @@ button:hover {
     align-items: flex-start;
 }
 
+ /* 메모 목록 테이블 스타일 (더 이상 메인 페이지에 없음) */
+/*
+.memo-list-container h2 {
+    color: #3b73e8;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.memo-list-container table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 2px solid #3b73e8;
+}
+
+.memo-list-container th,
+.memo-list-container td {
+    border: 1px solid #3b73e8;
+    padding: 8px;
+    text-align: center;
+}
+
+.memo-list-container th {
+    background-color: #f0f8ff;
+    color: #3b73e8;
+    font-weight: bold;
+}
+
+.memo-list-container td a {
+    color: #3b73e8;
+    text-decoration: none;
+}
+
+.memo-list-container td a:hover {
+    text-decoration: underline;
+}
+*/
